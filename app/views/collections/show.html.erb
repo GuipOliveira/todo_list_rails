@@ -1,0 +1,7 @@
+<h1><%= @collection.name %></h1>
+
+<%= @collection.tasks.count %>
+
+<% @collection.tasks do |task| %> 
+    <%= task.name %>
+    <% end %>
