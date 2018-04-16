@@ -1,28 +1,57 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
   <head>
-    <title>Todo</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= content_for?(:title) ? yield(:title) : "To Do List" %></title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <%= stylesheet_link_tag    "application", :media => "all" %>
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tags %>
+    <%= yield(:head) %>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-
-    <p class="notice"><%= notice %></p>
-       <p class="alert"><%= alert %></p>
-
   </head>
-    <% if user_signed_in? %>
-    <li>
-      <%= link_to('Logout', destroy_user_session_path, method: :delete) %>        
-    </li>
-    <% else %>
-    <li>
-    <%= link_to('Login', new_user_session_path)  %>  
-    </li>
-  <% end %>
-
   <body>
-    <%= yield %>
-  </body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="#">Navbar</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <% if user_signed_in? %>
+
+            <li class="nav-item">
+                <%=link_to('Logout', destroy_user_session_path, method: :delete, class:'nav-link')%>
+            </li>
+          
+            <li class="nav-item">
+                <%=link_to('Listas Publicas', destroy_user_session_path, method: :delete, class:'nav-link')%>
+            </li>
+          
+            <li class="nav-item">
+              <%=link_to('Minhas Listas', destroy_user_session_path, method: :delete, class:'nav-link')%>
+            </li>
+          
+            <li class="nav-item">
+              <%=link_to('Favoritos', destroy_user_session_path, method: :delete, class:'nav-link')%>
+            </li>
+          
+            <% else %>
+            <li  class="nav-item active">
+              <%=link_to 'Login', new_user_session_path , class:'nav-link' %>  
+            </li>
+            </li>
+          <% end %>
+          </ul>
+        </div>
+    </nav>
+
+</body>
+  <%= yield %>
 </html>
+

@@ -10,7 +10,8 @@ gem 'sqlite3'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 # Boostrap
-gem 'bootstrap-sass'
+gem 'bootstrap', '~> 4.1.0'
+gem 'jquery-rails'
 # Devise
 gem 'devise'
 # Use SCSS for stylesheets
