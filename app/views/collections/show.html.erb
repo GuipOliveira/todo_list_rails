@@ -2,4 +2,7 @@
 
 <% @collection.tasks.each do |task| %> 
     <%= task.name %>
+    <% if current_user.id == @collection.user.id %>
+    <%= link_to 'Destroy', "/collections/#{@collection.id}/tasks/#{task.id}", method: :delete %>
     <% end %>
+<% end %>
