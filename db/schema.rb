@@ -10,13 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_04_14_175845) do
+ActiveRecord::Schema.define(version: 2018_04_16_000331) do
 
   create_table "collections", force: :cascade do |t|
     t.string "name"
     t.boolean "is_public"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "favorites", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "user_id"
+    t.integer "collection_id"
+    t.index ["collection_id"], name: "index_favorites_on_collection_id"
+    t.index ["user_id"], name: "index_favorites_on_user_id"
   end
 
   create_table "tasks", force: :cascade do |t|

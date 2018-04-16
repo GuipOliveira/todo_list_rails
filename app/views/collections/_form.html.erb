@@ -1,0 +1,16 @@
+<%= form_for(@collection) do |f| %>
+    <div class="field">
+        <%= f.label :Nome %>
+        <%= f.text_field :name %>
+    </div>
+    <div class="field">
+        <%= f.label :Privada %>
+        <%= f.check_box :is_public %> <br />
+    </div>
+    <input type="text" name="tasks[]" />
+    <input type="text" name="tasks[]" />
+    <input type="text" name="tasks[]" />
+    <p>
+      <%= f.submit %>
+    </p>
+  <% end %>
