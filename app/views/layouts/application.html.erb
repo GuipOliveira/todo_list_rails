@@ -16,7 +16,7 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light justify-content-between">
       <a class="navbar-brand" href="#">Navbar</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -26,7 +26,7 @@
             <% if user_signed_in? %>
 
             <li class="nav-item">
-                <%=link_to('Logout', destroy_user_session_path, method: :delete, class:'nav-link')%>
+                <%=link_to('Nova Lista', destroy_user_session_path, method: :delete, class:'nav-link')%>
             </li>
           
             <li class="nav-item">
@@ -39,6 +39,10 @@
           
             <li class="nav-item">
               <%=link_to('Favoritos', destroy_user_session_path, method: :delete, class:'nav-link')%>
+            </li>
+            
+            <li class="nav-item">
+              <%=link_to('Logout', destroy_user_session_path, method: :delete, class:'nav-link')%>
             </li>
           
             <% else %>

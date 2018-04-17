@@ -1,16 +1,30 @@
+<div class="text-center">
 <%= form_for(@collection) do |f| %>
     <div class="field">
         <%= f.label :Nome %>
         <%= f.text_field :name %>
-    </div>
-    <div class="field">
+
         <%= f.label :Privada %>
-        <%= f.check_box :is_public %> <br />
+        <%= f.check_box :is_public %> <br /><br />
     </div>
-    <input type="text" name="tasks[]" />
-    <input type="text" name="tasks[]" />
-    <input type="text" name="tasks[]" />
+    <div class='form-group '>
+        <input id= "input" type="text"  placeholder="Adicionar tarefa" name="tasks[]" >
+    </div>
     <p>
-      <%= f.submit %>
+      <%= f.submit class:"btn btn-default" %>
     </p>
   <% end %>
+    <button type="button" class="btn btn-default" id="newTask" >Nova Tarefa</button>
+</div>
+  <script>
+  $(document).ready(function() {
+
+    $( "#newTask" ).click(function() {
+            $('<input>').attr('type','text').attr('name','tasks[]').appendTo("form");
+            console.log("chamando!!!!");
+        return false;
+    });
+});  
+  
+
+</script>
