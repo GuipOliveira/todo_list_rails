@@ -26,21 +26,21 @@
             <% if user_signed_in? %>
 
             <li class="nav-item">
-                <%=link_to('Nova Lista', destroy_user_session_path, method: :delete, class:'nav-link')%>
+                <%=link_to('Nova Lista', "/collections/new", class:'nav-link')%>
             </li>
           
             <li class="nav-item">
-                <%=link_to('Listas Publicas', destroy_user_session_path, method: :delete, class:'nav-link')%>
+                <%=link_to('Listas Publicas', "/", class:'nav-link')%>
             </li>
           
             <li class="nav-item">
-              <%=link_to('Minhas Listas', destroy_user_session_path, method: :delete, class:'nav-link')%>
+              <%=link_to('Minhas Listas',"/private_lists", class:'nav-link')%>
             </li>
           
             <li class="nav-item">
               <%=link_to('Favoritos', destroy_user_session_path, method: :delete, class:'nav-link')%>
             </li>
-            
+
             <li class="nav-item">
               <%=link_to('Logout', destroy_user_session_path, method: :delete, class:'nav-link')%>
             </li>
