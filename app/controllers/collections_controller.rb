@@ -1,7 +1,7 @@
 class CollectionsController < ApplicationController
 
 	def index
-		@collections = Collection.all
+		@collections = Collection.where(user_id: current_user.id)
 	end
 
 	def new
@@ -32,9 +32,6 @@ class CollectionsController < ApplicationController
 	def update
 	end
 
-	def private_lists
-		@collections = Collection.where(user: current_user)
-	end
 
 	def destroy_task
 		task = Task.find(params[:id])

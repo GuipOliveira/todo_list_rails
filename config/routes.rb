@@ -9,11 +9,10 @@ Rails.application.routes.draw do
     end
   
     unauthenticated do
-      root "devise/registrations#new", as: :unauthenticated_root
+      root 'users/sessions#create', as: :unauthenticated_root
     end
   end 
 
     resources :collections
   delete '/collections/:id/tasks/:id', to: 'collections#destroy_task'
-  get '/private_lists', to: 'collections#private_lists'
 end
