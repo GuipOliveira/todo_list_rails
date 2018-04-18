@@ -1,8 +1,22 @@
-<h1><%= @collection.name %></h1>
-
-<% @collection.tasks.each do |task| %> 
-    <%= task.name %>
-    <% if current_user.id == @collection.user.id %>
-    <%= link_to 'Destroy', "/collections/#{@collection.id}/tasks/#{task.id}", method: :delete %>
-    <% end %>
-<% end %>
+<div class="table-responsive">    
+    <table class="table table-hover">
+    <thead >
+        <tr> <th scope="col"><h1><%= @collection.name %></h1></th> </tr>
+    </thead>
+    <tbody>
+    <% @collection.tasks.each do |task| %>  
+            <tr>
+                <th scope="row"><%= task.name %></th>
+                <% if current_user.id == @collection.user.id %>
+                    <th scope="row"><%= link_to 'Destroy', "/collections/#{@collection.id}/tasks/#{task.id}", method: :delete %></th>
+                <% end %>
+            </tr>
+        <% end %> 
+    </tbody>
+    </table>
+</div>
+<% if @collection.favorites.any? {|f| f.user_id == current_user.id } %>
+    <%= link_to 'Tirar dos favoritos', favorite_path(id: @collection.id), method: :delete %>
+<% else %>
+    <%= link_to 'Favoritar', favorites_path(id: @collection.id), method: :post %>
+<%end %>

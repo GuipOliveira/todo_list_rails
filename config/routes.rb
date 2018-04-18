@@ -15,4 +15,8 @@ Rails.application.routes.draw do
 
     resources :collections
   delete '/collections/:id/tasks/:id', to: 'collections#destroy_task'
+
+  resources :favorites, only: [:index, :create, :destroy]
+  
+
 end
