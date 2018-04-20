@@ -21,7 +21,7 @@
     </footer>
 
   <% end %>
-    </br><button type="button" class="btn btn-default" id="newTask" >Nova Tarefa</button>
+    <br><button type="button" class="btn btn-default" id="newTask" >Nova Tarefa</button>
 </div>
 
 
@@ -32,7 +32,8 @@
   $(document).ready(function() {
 
     $( "#newTask" ).click(function() {
-            $('<input>').attr('type','text').attr('name','tasks[]').appendTo("form");  
+            $('<input>').attr('type','text').attr('name','tasks[]').appendTo("form"); 
+            $('<br>').appendTo('form');
         return false;
     });
 });  

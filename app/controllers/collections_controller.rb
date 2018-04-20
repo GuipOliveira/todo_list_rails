@@ -26,6 +26,13 @@ class CollectionsController < ApplicationController
 		end
 	end
 
+	def destroy
+		collection = Collection.find(params[:id])
+		collection.destroy
+		redirect_to action: "index"
+	end
+
+
 	def edit
 	end
 

@@ -1,0 +1,35 @@
+<div class="table-responsive">        
+    <table class="table table-hover">
+    <thead class="thead-dark" >
+        <tr>
+        <th scope="col">Nome</th>
+        <th scope="col">Criada por:</th>
+        <th scope="col"></th>
+        <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+    <% @collections.each do |collection| %>  
+            <tr>
+                <th scope="row"><%= collection.name %></th>
+                <th scope="row"><%= collection.user.email %></th>
+                <th scope="row"><%= link_to 'Ver Tarefas', collection_path(collection) %></th>
+                <th scope="row">
+                    <% if current_user.id == collection.user.id %>
+                        <%= link_to 'Apagar', collection_path(collection.id), method: :delete, :confirm => "Quer mesmo apagar?" %>
+                    <% end %>
+                </th>
+            </tr>
+        <% end %> 
+    </tbody>
+    </table>
+</div>
+
+
+
+
+
+
+
+
+
