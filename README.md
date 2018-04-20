@@ -1,24 +1,20 @@
-# README
+#  To Do List README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A aplicaçãoé um organizador de listas de tarefas (to-do lists).
 
-Things you may want to cover:
+Como utilizar:
 
-* Ruby version
+* bundle install
 
-* System dependencies
+* rake db:create bd:migrate
 
-* Configuration
+* rspec (teste)
 
-* Database creation
+Stack Utilizada.
 
-* Database initialization
+* Ruby 2.5.1
 
-* How to run the test suite
+* Rails 5
 
-* Services (job queues, cache servers, search engines, etc.)
+* Bootstrap
 
-* Deployment instructions
-
-* ...
