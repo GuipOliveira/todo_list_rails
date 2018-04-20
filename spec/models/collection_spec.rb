@@ -5,7 +5,7 @@ RSpec.describe Collection, type: :model do
     context "scope testes" do
       let (:params){{name: 'Lista Teste',is_public: true, user_id: 1}}
       before(:each) do
-        User.create!(email: "teste@teste.com", password:"senha123")
+        User.create(email: "teste@teste.com", password:"senha123")
         Collection.create(params)
         Collection.create(params)
         Collection.create(params)
