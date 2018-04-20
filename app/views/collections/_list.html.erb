@@ -6,6 +6,7 @@
         <th scope="col">Criada por:</th>
         <th scope="col"></th>
         <th scope="col"></th>
+        <th scope="col"></th>
         </tr>
     </thead>
     <tbody>
@@ -14,11 +15,10 @@
                 <th scope="row"><%= collection.name %></th>
                 <th scope="row"><%= collection.user.email %></th>
                 <th scope="row"><%= link_to 'Ver Tarefas', collection_path(collection) %></th>
-                <th scope="row">
-                    <% if current_user.id == collection.user.id %>
-                        <%= link_to 'Apagar', collection_path(collection.id), method: :delete, :confirm => "Quer mesmo apagar?" %>
-                    <% end %>
-                </th>
+                <% if current_user.id == collection.user.id %>
+                    <th scope="row"> <%= link_to 'Apagar', collection_path(collection.id), method: :delete, :confirm => "Quer mesmo apagar?" %></th>
+                    <th scope="row"> <%= link_to 'Editar', edit_collection_path(collection.id) %></th>
+                <% end %>
             </tr>
         <% end %> 
     </tbody>

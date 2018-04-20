@@ -34,6 +34,7 @@ class CollectionsController < ApplicationController
 
 
 	def edit
+		@collection = Collection.find(params[:id])
 	end
 
 	def update
